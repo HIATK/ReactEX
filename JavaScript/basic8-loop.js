@@ -38,3 +38,33 @@ console.log(Object.values(doggy));
 for(let key in doggy){
     console.log(`${key}:${doggy[key]}`)
 }
+
+//반복문 연습
+//함수 -> sumOf()
+// 배열 파라미터를 받아서 총합을구하는 함수
+
+// console.log('반복문 연습');
+// function sumOf(numbers){
+//     let sum = 0;
+//     for(let i = 0; i < numbers.length; i++){
+//         sum += numbers[i];
+//     }
+//     return sum;
+// }
+// const result = sumOf([1,2,3,4,5]);
+// console.log(result);
+
+//퀴즈 
+//숫자로 이룽어진 배열이 주어졌을 때, 해당 숫자 배열 안에 들어있는
+//숫자가 5보다 큰 숫자로 이루어진 배열을 새로 만들어 반환하는 함수
+function biggerThanfive(numbers) {
+    let result = [];
+    for(let i = 0; i < numbers.length; i++) {
+        if(numbers[i] > 5) {
+            result.push(numbers[i]);
+        }
+    }
+    return result;
+}
+const numbers3 = [8, 1, 3, 7, 9, 65, 54, 3, 5]
+console.log(biggerThanfive(numbers3)); // [8, 7, 9, 65, 54]
