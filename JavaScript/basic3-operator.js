@@ -76,3 +76,16 @@ const x = 1;
 const y = 1;
 const equals = x == y;
 console.log(equals);
+
+const notEquals = 'a' !== 'b';
+console.log(notEquals);
+console.log(1 < 1);
+console.log(1 > 1);
+
+//<, >, <=, >= 
+
+
+//문자열 붙이기 
+const t1 = '안녕';
+const t2 = '하세요';
+console.log(t1 + t2);
