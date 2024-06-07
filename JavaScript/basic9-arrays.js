@@ -1,80 +1,64 @@
-//배열 내장함수
-//배열을 다룰 때 알고 있으면 너무나 유용한 내장 함수...
+// splice
+const numbers4 = [10, 20, 30, 40];
+const indexNumber = numbers4.indexOf(30);
+numbers4.splice(indexNumber,1) // splice(시작 인덱스, 지울 개수)
+console.log(numbers4); // [10, 20, 40]
 
-//forEach : 가장 쉬운 배열 내장함수. for문을 대체한다.
-const superheros = ['thor', 'ironman', 'captain america']
-for(let i = 0 ; i < superheros.length; i++){
-    console.log(superheros[i]);
-}
-//이걸 forEach로 바꾸면...
+//slice 배열을 잘라낼 때 사용 중요포인트는 기존 배열을 수정하지는 않는다.
+const sliced = numbers4.slice(0,2)//0부터 2전까지 자른다.
+console.log(sliced); // [10, 20]
+console.log(numbers4); // [10, 20, 40]
+/*shift는 첫번째 원소를 배열에서 추출
+pop은 배열의 마지막 원소를 추출한다.*/
+const numbers5 = [10,20,30,40,50];
+const value = numbers5.shift();
+console.log(value); //10
+console.log(numbers5); // [20, 30, 40, 50]
 
-superheros.forEach(hero => {
-    console.log(hero);
+
+const valuePop = numbers5.pop();
+console.log(valuePop); //50
+console.log(numbers5); // [20, 30, 40]
+
+//unshift : shift의 반대 shift의 반대 배열의 맨 앞에 새 원소를 추가한다.
+numbers5.unshift(5);
+console.log(numbers5); // [5, 20, 30, 40]
+
+/////
+
+const arr1 = [10,20,30];
+const arr2 = [40,50,60];
+const concated = arr1.concat(arr2);
+console.log(concated); // [10, 20, 30, 40, 50, 60]
+
+// join : 배열 안의 값들을 문자열로 합쳐준다.
+const array =[1,2,3,4,5];
+const arrayJoin = ' ';
+console.log(array.join()); //1,2,3,4,5
+console.log(array.join(arrayJoin)); //1 2 3 4 5
+console.log(typeof array.join()); //string
+//split : 문자열을 특정 기호를 기준으로 배열로 만들어 준다.
+console.log(array.join().split(',')); //["1", "2", "3", "4", "5"]
+
+/////
+
+let numbers = [1, 2, 3, 4, 5];
+let sum = 0;
+ 
+numbers.forEach(n => {
+    sum += n;
 });
+console.log(sum); //15
+// -> reduce사용
+sum = numbers.reduce((pre, current) => pre + current, 0);
+console.log(sum); //15
 
-//map : 배열 안의 각 원소를 변환할 때 사용.
-const array = [1,2,3,4,5,6,7,8];
-//해당 배열 안의 모든 숫자를 제곱해서 새로운 배열로 만들고 싶다면? 
-const squared = [];
-for(number of array){
-    squared.push(number * number);
-}
-console.log(squared);
-
-//=>
-
-const squared1 = [];
-for(number of array){
-    squared.push(number * number);
-}
-
-const squared2 = [];
-array.forEach(n => {
-    squared2.push(n * n);
-});
-console.log(squared2);
-
-// map ->
-const square = n => n * n; //화살함수
-const squared3 = array.map(square);
-//const squared3 = array.map(n => n * n); //위의 두 줄을 한 줄로 줄인 것
-console.log(squared3);  // [1, 4, 9, 16, 25, 36, 49, 64]
-
-// indexOf 원하는 항목이 몇 번째 원소인지 찾아주는 함수...
-const superheros1 = ['thor', 'ironman', 'captain america', 'thor'];
-const index = superheros1.indexOf('thor');
-console.log(index); //0
-
-// 배열 안에 값이 기본 자료형이면 indexOf를 사용하여 값을 찾을 수 있음.
-// 만약에 배열 안에 있는 값이 객체이거나, 배열이라면? indexOf로 찾을수 없다.
-
-const todo =[
-    {
-        id : 1,
-        text : '자바스크립트 입문',
-        done : true
-    },
-    {
-        id : 2,
-        text : '자바 입문',
-        done : true
-    },
-    {
-        id : 3,
-        text : '함수와 메서드',
-        done : true
-    },
-    {
-        id : 4,
-        text : '객체와 배열의 내장함수',
-        done : true
-    },
-    {
-        id : 5,
-        text : '자바스크립트',
-        done : true
+const numbers7 = [10,20,30,40,50,60,70];
+sum = numbers7.reduce((previous,current,index,array)=>{
+    if(index === array.length -1){
+        return(previous + current) / array.length;  
     }
-];
-//객체 배열에서 객체의 맴버 값 중에 id가 3인 객체가 몇번째 인지 알려면 어떻게 해야 할까?
-const objectIndex = todo.findIndex(todo => todo.id === 3);
-console.log(objectIndex); //3
+    return previous + current;
+},0);
+
+console.log(sum); //35

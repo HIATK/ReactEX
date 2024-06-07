@@ -67,4 +67,9 @@ function biggerThanfive(numbers) {
     return result;
 }
 const numbers3 = [8, 1, 3, 7, 9, 65, 54, 3, 5]
+
 console.log(biggerThanfive(numbers3)); // [8, 7, 9, 65, 54]
+sum = numbers6.reduce((pre, current)=>{
+    return pre + current;
+},0);
+console.log(sum); //15
