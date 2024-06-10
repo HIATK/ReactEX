@@ -20,3 +20,21 @@ console.log(!0);
 console.log(!'');
 console.log(!NaN);  //NaN -> Not a Number 문자열을 숫자로 변환할때 parseInt()
 
+//truthy값
+console.log(!3);
+console.log(!'hello');
+console.log(!['array']);
+console.log(![]);
+console.log(!{});
+console.log(!true);
+console.log(!'false');
+console.log(!-1);
+console.log(!'0');
+console.log(!'null');
+console.log(!'undefined');
+
+const value = {a:1};
+const truthy = value ? true : false;
+console.log('true : ' + value);
+
+
